@@ -1,9 +1,8 @@
-# command-execution-webapp
 # Command Execution WebApp
 
 Welcome to the **Command Execution WebApp**! This project allows users to run commands on the server and view the output in real-time through a web interface. The web application is built using HTML, CSS, JavaScript, and Python CGI scripts.
 
-![Demo](demo.png)
+![Demo](screenshots/demo.png)
 
 ## Features
 
@@ -32,7 +31,7 @@ Welcome to the **Command Execution WebApp**! This project allows users to run co
 1. **Clone the Repository**:
 
     ```sh
-    git clone https://github.com/yourusername/command-execution-webapp.git
+    git clone git@github.com:dilip8700/command-execution-webapp.git
     cd command-execution-webapp
     ```
 
@@ -41,8 +40,8 @@ Welcome to the **Command Execution WebApp**! This project allows users to run co
    - Update your Apache configuration to allow CGI execution.
 
     ```apache
-    ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
-    <Directory "/usr/lib/cgi-bin">
+    ScriptAlias /cgi-bin/ /path/to/your/repository/cgi-bin/
+    <Directory "/path/to/your/repository/cgi-bin">
         AllowOverride None
         Options +ExecCGI
         AddHandler cgi-script .cgi .py
@@ -52,14 +51,14 @@ Welcome to the **Command Execution WebApp**! This project allows users to run co
 
 3. **Deploy the Files**:
    - Copy the HTML, CSS, and JavaScript files to your web server’s document root (e.g., `/var/www/html/`).
-   - Copy the Python CGI script to the `cgi-bin` directory (e.g., `/usr/lib/cgi-bin/`).
+   - Copy the Python CGI script to the `cgi-bin` directory within your repository.
 
     ```sh
-    sudo cp index.html /var/www/html/
-    sudo cp style.css /var/www/html/
-    sudo cp script.js /var/www/html/
-    sudo cp command_exec.py /usr/lib/cgi-bin/
-    sudo chmod +x /usr/lib/cgi-bin/command_exec.py
+    cp html/index.html /var/www/html/
+    cp html/style.css /var/www/html/
+    cp html/script.js /var/www/html/
+    cp cgi-bin/command_exec.py /path/to/your/repository/cgi-bin/
+    chmod +x /path/to/your/repository/cgi-bin/command_exec.py
     ```
 
 4. **Restart the Web Server**:
@@ -78,8 +77,11 @@ Welcome to the **Command Execution WebApp**! This project allows users to run co
 
 ```plaintext
 command-execution-webapp/
-├── index.html
-├── style.css
-├── script.js
+├── html/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
 └── cgi-bin/
     └── command_exec.py
+
+
